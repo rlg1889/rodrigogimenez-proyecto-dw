@@ -186,43 +186,40 @@ header {
 
 #grid-productos{
   display:grid;
-  height: 800 px;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  height: 2000 px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: "img1 img2"
                       "img3 img4";
-  justify-items: stretch;
-  align-items: stretch;
-  justify-content: space-evenly;
-  align-content: space-around;
+  row-gap: 20px;
 }
 
 #img1{
   grid-area:img1;
   justify-self: center;
-  width: 55%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 #img2{
   grid-area:img2;
   justify-self: center;
-  width: 55%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 #img3{
   grid-area:img3;
   justify-self: center;
-  width: 55%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 #img4{
   grid-area:img4;
   justify-self: center;
-  width: 55%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 .boton {
