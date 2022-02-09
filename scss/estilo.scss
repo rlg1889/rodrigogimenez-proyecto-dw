@@ -1,4 +1,8 @@
 @import "variables";
+@mixin formatoTextos{
+  font-family: $fuenteTexto;
+  color:$coloresTitulos;
+}
 
 *{
     padding:0px;
@@ -11,9 +15,8 @@
   }
   
   h1{
-    font-family: 'Montserrat';
+    @include formatoTextos();
     font-weight: 700;
-    color:$coloresTitulos;  
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -50,54 +53,51 @@
   }
   
   h2{
-    font-family: $fuenteTexto;
-    font-weight: 700;
-    color:$coloresTitulos;  
+    @include formatoTextos();
+    font-weight: 700; 
     text-align: center;
     padding-bottom: 30px;
   }
   
-  footer{
-    display:flex;
-    background-color: $coloresFondos;
-    padding: 10px;
-    color:white;
-    font-family: $fuenteTexto;  
-    justify-content: space-between;
-  }
   
   nav{ 
     ul{
         padding: 50px;
         list-style: none;
         li{
-            font-family: $fuenteTexto;
-            font-weight: 700;
             padding: 30px;
             a{
-                color:$coloresTitulos;
-                text-decoration: none;
+              @include formatoTextos();  
+              text-decoration: none;
               }
         }
      }
     }   
     
     footer{ 
+      display:flex;
+      background-color: $coloresFondos;
+      padding: 10px;
+      justify-content: space-between;
         a{
             text-decoration: none;
             font-family: $fuenteTexto;
             font-weight: 700;
             color:white;
             margin:5px;
-    
+            &:hover
+            {
+              color:rgba(250, 0, 0, 0.70);
+              text-shadow: 0 0 0.3em rgb(255, 255, 255), 0 0 0.3em rgb(255, 255, 255), 0 0 0.3em rgb(255, 255, 255)
+            }
         }
         }
   
-    div {
-        img{
-        height: 100%;
-        width: 100%;
-        }
+        div {
+            img{
+            height: 100%;
+            width: 100%;
+            }
     }
   
     
@@ -138,47 +138,49 @@
   .parrafos{
     font-family: $fuenteTexto;
     font-weight: 300;
-    color:$coloresTextos;  
     text-align: center;
     margin-bottom: 30px;
   }
   
   .descripciones{
-    font-family: $fuenteTexto;
+    @extend .parrafos; 
     font-weight: 700;
-    color:$coloresTextos;  
-    text-align: center;
     margin-top: 10px;
-  }
-  
-  .botones{
-    font-family: $fuenteTexto;
-    font-weight: 300;
-    color:$coloresTextos;  
-    text-align: center;
   }
   
   .contenedor{
     display: flex;
     padding-top:20px;
-    margin:auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     justify-content: center;
     align-items: center;
   }
   
   .formulario{
-    display: flex;
-    padding-top:20px;
-    margin:auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction:column;
-    
+    @extend .contenedor;
+    flex-direction:column;  
   }
-  
+
+  .navbar-texto{
+    color:$coloresTitulos;
+    text-decoration: underline 0.15em rgb(255, 255, 255);
+    transition: text-decoration-color 300ms, text-underline-offset 300ms;
+
+    &:hover
+    {
+      color:rgb(255, 0, 0);
+      text-decoration-color: rgb(255, 0, 0);
+      text-underline-offset: 0.5em;
+    }
+  }
+
+
   #grid-productos{
     display:grid;
     height: 2000 px;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "img1 img2"
